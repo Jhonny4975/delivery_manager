@@ -10,10 +10,10 @@ describe 'the administrator accesses the transporters listing screen' do
     visit transporters_path
 
     expect(page).to have_content 'Transportadoras'
-    expect(page).to have_content Transporter.first.corporate_name
+    expect(page).to have_content Transporter.first.brand_name
     expect(page).to have_content Transporter.first.domain
     expect(page).to have_content Transporter.first.registration_number
-    expect(page).to have_content Transporter.last.corporate_name
+    expect(page).to have_content Transporter.last.brand_name
     expect(page).to have_content Transporter.last.domain
     expect(page).to have_content Transporter.last.registration_number
   end
