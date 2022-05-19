@@ -4,8 +4,8 @@ pt-BR:
       transporter: 'Transportadora'
     attributes:
       transporter:
-        corporate_name: 'Nome Fantasia'
-        brand_name: 'Razão Social'
+        corporate_name: 'Razão Social'
+        brand_name: 'Nome Fantasia'
         registration_number: 'CNPJ'
         full_address: 'Endereço'
         domain: 'Domínio'
