@@ -30,7 +30,7 @@ RSpec.describe Transporter, type: :model do
 
         expect(transporter).not_to be_valid
         expect(transporter.errors.full_messages.length).to eq 1
-        expect(transporter.errors.full_messages.last).to eq 'Nome Fantasia não pode ficar em branco'
+        expect(transporter.errors.full_messages.last).to eq 'Razão Social não pode ficar em branco'
       end
 
       it 'invalid when brand_name is not present' do
@@ -38,7 +38,7 @@ RSpec.describe Transporter, type: :model do
 
         expect(transporter).not_to be_valid
         expect(transporter.errors.full_messages.length).to eq 1
-        expect(transporter.errors.full_messages.first).to eq 'Razão Social não pode ficar em branco'
+        expect(transporter.errors.full_messages.first).to eq 'Nome Fantasia não pode ficar em branco'
       end
 
       it 'invalid when registration_number is not present' do
@@ -80,7 +80,7 @@ RSpec.describe Transporter, type: :model do
 
         expect(second_transporter).not_to be_valid
         expect(second_transporter.errors.full_messages.length).to eq 1
-        expect(second_transporter.errors.full_messages.last).to eq 'Nome Fantasia já está em uso'
+        expect(second_transporter.errors.full_messages.last).to eq 'Razão Social já está em uso'
       end
 
       it 'invalid when brand_name is already in use' do
@@ -89,7 +89,7 @@ RSpec.describe Transporter, type: :model do
 
         expect(second_transporter).not_to be_valid
         expect(second_transporter.errors.full_messages.length).to eq 1
-        expect(second_transporter.errors.full_messages.last).to eq 'Razão Social já está em uso'
+        expect(second_transporter.errors.full_messages.last).to eq 'Nome Fantasia já está em uso'
       end
 
       it 'invalid when registration_number is already in use' do
