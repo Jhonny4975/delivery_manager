@@ -35,8 +35,10 @@ O objetivo é avaliar minha evolução durante o treinamento e capacidade de con
 
 ## Instruções
 
+Clone o projeto:
+
 ```sh
-git clone https://github.com/Jhonny4975/delivery_manager.git => clonar o projeto
+git clone https://github.com/Jhonny4975/delivery_manager.git
 ```
 
 Instalação e execução:
@@ -44,7 +46,7 @@ Instalação e execução:
 ```sh
 bundle install               => instalar dependencias do projeto (o ruby 3.1.0 deve estar instalado)
 
-bin/rails db:prepare db:seed => criar e popular banco de dados
+bin/rails db:prepare db:seed => preparar e popular banco de dados
 
 bundle exec rspec            => rodar testes
 
@@ -61,13 +63,13 @@ Decidi adicionar algumas gems para melhorar a qualidade do projeto, tais como:
 
 - [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers), para verificar se validações do rails foram definidas e aumentar a cobertura de testes.
 
-- [FactoryBot](https://github.com/thoughtbot/factory_bot/), para facilitar na criação de testes.
+- [FactoryBot](https://github.com/thoughtbot/factory_bot/), gera factories para facilitar na criação de testes.
 
 - [Faker](https://github.com/faker-ruby/faker), para gerar dados aleatórios, evitando que os testes funcionem apenas com dados fixos.
 
 - [pry-byebug](https://github.com/deivid-rodriguez/pry-byebug), ferramenta de debug.
 
-- [rubocop](https://docs.rubocop.org/rubocop/1.29/index.html), um analisador e formatador de código Ruby, baseado no guia de estilo da comunidade, possui uma coleção de policiais para verificar otimizações de desempenho no código.
+- [Rubocop](https://docs.rubocop.org/rubocop/1.29/index.html), é o linter mais utilizado para linguagem Ruby. Basicamente ele faz uma análise `estática` de código Ruby, baseado em um guia de estilo adotado pela comunidade. Também possui uma coleção de cops (tipo de policiais) para verificar e garantir otimizações no código em diversas frentes, como por exemplo: desempenho, estilo, layout, etc.
 
 ## Resumo de Funcionalidades
 
