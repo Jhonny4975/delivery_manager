@@ -4,6 +4,10 @@
 
 - [Quadro de tarefas do projeto](https://trello.com/b/ZI1ZXOuM/delivery-system)
 
+- [Instruções](#instruções)
+
+- [Ferramentas adicionais](#ferramentas-adicionais)
+
 - [Resumo de Funcionalidades](#resumo-de-funcionalidades)
 
   - [Gestão de Transportadoras](#gestão-de-transportadoras)
@@ -28,6 +32,42 @@
 
 Em cumprimento aos requisitos do curso e para avaliação da **Campus Code**, esse projeto foi desenvolvido de forma individual.
 O objetivo é avaliar minha evolução durante o treinamento e capacidade de converter os requisitos de negócio em código, criando um projeto que atenda as necessidades e requisitos funcionais de um pequeno sistema de gestão de entregas.
+
+## Instruções
+
+```sh
+git clone https://github.com/Jhonny4975/delivery_manager.git => clonar o projeto
+```
+
+Instalação e execução:
+
+```sh
+bundle install               => instalar dependencias do projeto (o ruby 3.1.0 deve estar instalado)
+
+bin/rails db:prepare db:seed => criar e popular banco de dados
+
+bundle exec rspec            => rodar testes
+
+rails server                 => rodar servidor
+```
+
+com o servidor rodando acesse [localhost](http://localhost:3000/)
+
+## Ferramentas Adicionais
+
+Decidi adicionar algumas gems para melhorar a qualidade do projeto, tais como:
+
+- [Simplecov](https://github.com/simplecov-ruby/simplecov), para ter um feedback da cobertura de testes.
+
+- [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers), para verificar se validações do rails foram definidas e aumentar a cobertura de testes.
+
+- [FactoryBot](https://github.com/thoughtbot/factory_bot/), para facilitar na criação de testes.
+
+- [Faker](https://github.com/faker-ruby/faker), para gerar dados aleatórios, evitando que os testes funcionem apenas com dados fixos.
+
+- [pry-byebug](https://github.com/deivid-rodriguez/pry-byebug), ferramenta de debug.
+
+- [rubocop](https://docs.rubocop.org/rubocop/1.29/index.html), um analisador e formatador de código Ruby, baseado no guia de estilo da comunidade, possui uma coleção de policiais para verificar otimizações de desempenho no código.
 
 ## Resumo de Funcionalidades
 
