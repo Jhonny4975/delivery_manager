@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Nome</th>
+      <th>Nome Fantasia</th>
       <th>Domínio</th>
       <th>CNPJ</th>
     </tr>
@@ -11,7 +11,7 @@
   <tbody>
     <% @transporters.each do |transporter| %>
     <tr>
-      <td><%= link_to transporter.corporate_name, transporter %></td>
+      <td><%= link_to transporter.brand_name, transporter %></td>
       <td><%= transporter.domain %></td>
       <td><%= transporter.registration_number %></td>
     </tr>
