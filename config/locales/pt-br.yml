@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       transporter: 'Transportadora'
+      vehicle: 'Veículo'
     attributes:
       transporter:
         corporate_name: 'Razão Social'
@@ -9,3 +10,8 @@ pt-BR:
         registration_number: 'CNPJ'
         full_address: 'Endereço'
         domain: 'Domínio'
+      vehicle:
+        license_plate: 'Placa de identificação'
+        brand_name: 'Razão Social'
+        model: 'Modelo'
+        capacity: 'Capacidade'
