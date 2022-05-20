@@ -1,0 +1,11 @@
+<h2>Veículo: <%= @vehicle.license_plate %></h2>
+
+<div>
+  <strong>Marca:</strong> <%= @vehicle.brand_name %><br>
+  <strong>Modelo: </strong> <%= @vehicle.model %><br>
+  <strong>Ano:</strong> <%= @vehicle.year %><br>
+  <strong>Capacidade:</strong> <%= @vehicle.capacity %> kg<br>
+</div><br>
+<div>
+  <%= link_to 'Voltar', vehicles_path %>
+</div>

@@ -13,7 +13,7 @@ describe 'Admin view vehicle details' do
     expect(page).to have_content "Marca: #{vehicle.brand_name}"
     expect(page).to have_content "Modelo: #{vehicle.model}"
     expect(page).to have_content "Ano: #{vehicle.year}"
-    expect(page).to have_content "Capacidade: #{vehicle.capacity}"
+    expect(page).to have_content "Capacidade: #{vehicle.capacity} kg"
     expect(page).to have_link 'Voltar'
   end
 end
