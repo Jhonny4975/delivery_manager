@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_17_172644) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_19_205305) do
   create_table "transporters", force: :cascade do |t|
     t.string "corporate_name", null: false
     t.string "brand_name", null: false
@@ -24,6 +24,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_17_172644) do
     t.index ["domain"], name: "unique_domain", unique: true
     t.index ["full_address"], name: "unique_full_address", unique: true
     t.index ["registration_number"], name: "unique_registration_number", unique: true
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "license_plate", null: false
+    t.string "brand_name", null: false
+    t.string "model", null: false
+    t.string "year"
+    t.string "capacity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["license_plate"], name: "unique_license_plate", unique: true
   end
 
 end
