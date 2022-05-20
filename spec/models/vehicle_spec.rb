@@ -34,7 +34,7 @@ RSpec.describe Vehicle, type: :model do
 
         expect(vehicle).not_to be_valid
         expect(vehicle.errors.full_messages.length).to eq 1
-        expect(vehicle.errors.full_messages.first).to eq 'Razão Social não pode ficar em branco'
+        expect(vehicle.errors.full_messages.first).to eq 'Marca não pode ficar em branco'
       end
 
       it 'invalid when model is not present' do
