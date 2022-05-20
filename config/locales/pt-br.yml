@@ -12,6 +12,7 @@ pt-BR:
         domain: 'Domínio'
       vehicle:
         license_plate: 'Placa de identificação'
-        brand_name: 'Razão Social'
+        brand_name: 'Marca'
         model: 'Modelo'
         capacity: 'Capacidade'
+        year: 'Ano'
