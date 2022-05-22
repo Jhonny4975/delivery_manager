@@ -8,5 +8,6 @@
 </div><br>
 <div>
   <%= link_to 'Editar veículo', edit_vehicle_path %><br>
+  <%= button_to 'Deletar veículo', @vehicle, method: :delete %>
   <%= link_to 'Voltar', vehicles_path %>
 </div>

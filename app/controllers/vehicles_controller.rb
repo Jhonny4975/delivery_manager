@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: %i[show edit update]
+  before_action :set_vehicle, only: %i[show edit update destroy]
 
   def index
     @vehicles = Vehicle.all
@@ -37,6 +37,14 @@ class VehiclesController < ApplicationController
 
       render :edit
     end
+  end
+
+  def destroy
+    @vehicle.destroy
+
+    flash[:notice] = 'Veículo excluído com sucesso!'
+
+    redirect_to vehicles_path
   end
 
   private
