@@ -1,0 +1,31 @@
+<div>
+  <% if vehicle.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+      <% vehicle.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<%= form_with model: vehicle do |form| %>
+  <div>
+    <%= form.text_field :license_plate, placeholder: 'Placa de identificação:' %><br>
+  </div>
+  <div>
+    <%= form.text_field :brand_name, placeholder: 'Marca:' %><br>
+  </div>
+  <div>
+    <%= form.text_field :model, placeholder: 'Modelo:' %><br>
+  </div>
+   <div>
+    <%= form.text_field :year, placeholder: 'Ano:' %><br>
+  </div>
+  <div>
+    <%= form.text_field :capacity, placeholder: 'Capacidade:' %><br>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

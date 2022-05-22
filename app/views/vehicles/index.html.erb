@@ -1,18 +1,23 @@
 <h2>Veículos</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Modelo</th>
-      <th>Capacidade</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @vehicles.each do |vehicle| %>
-    <tr>
-      <td><%= link_to vehicle.model, vehicle %></td>
-      <td><%= vehicle.capacity %> kg</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Modelo</th>
+        <th>Capacidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @vehicles.each do |vehicle| %>
+      <tr>
+        <td><%= link_to vehicle.model, vehicle %></td>
+        <td><%= vehicle.capacity %> kg</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div><br>
+<div>
+  <%= link_to 'Novo Veículo', new_vehicle_path %>
+</div>
