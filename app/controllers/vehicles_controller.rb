@@ -11,7 +11,33 @@ class VehiclesController < ApplicationController
 
   def show; end
 
+  def new
+    @vehicle = Vehicle.new
+  end
+
+  def create
+    @vehicle = Vehicle.new(vehicle_params)
+
+    if @vehicle.save
+      redirect_to @vehicle, notice: 'Veículo cadastrado com sucesso!'
+    else
+      flash.now[:notice] = 'Veículo não cadastrado.'
+
+      render :new
+    end
+  end
+
   private
+
+  def vehicle_params
+    params.require(:vehicle).permit(
+      :license_plate,
+      :brand_name,
+      :model,
+      :year,
+      :capacity
+    )
+  end
 
   def set_vehicle
     @vehicle = Vehicle.find(params[:id])
