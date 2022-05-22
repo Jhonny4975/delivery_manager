@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: %i[show]
+  before_action :set_vehicle, only: %i[show edit update]
 
   def index
     @vehicles = Vehicle.all
@@ -24,6 +24,18 @@ class VehiclesController < ApplicationController
       flash.now[:notice] = 'Veículo não cadastrado.'
 
       render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @vehicle.update(vehicle_params)
+      redirect_to @vehicle, notice: 'Veículo atualizada com sucesso!'
+    else
+      flash.now[:notice] = 'Não foi possivel atualizar a veículo.'
+
+      render :edit
     end
   end
 
