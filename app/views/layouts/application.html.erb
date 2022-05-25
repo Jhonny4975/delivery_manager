@@ -11,7 +11,16 @@
 
   <body>
     <header>
-      <h1>Delivery Manager</h1>
+      <h1>Gerenciador de Entregas</h1>
+      <nav>
+        <% if user_signed_in? %>
+          <%= current_user.branch_office_name %>
+          <%= current_user.email %>
+          <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Fazer login', new_user_session_path %>
+        <% end %>
+      </nav>
     </header>
     <main>
       <% if flash.any? %>
