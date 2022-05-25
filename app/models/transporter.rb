@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Transporter < ApplicationRecord
+  has_many :user, dependent: :destroy
+
   validates :corporate_name,
             :brand_name,
             :domain,
