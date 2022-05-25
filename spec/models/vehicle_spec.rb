@@ -4,6 +4,10 @@ require 'rails_helper'
 
 RSpec.describe Vehicle, type: :model do
   describe 'are there validations?' do
+    context 'with association' do
+      it { is_expected.to belong_to(:user).optional }
+    end
+
     context 'with presence' do
       it { is_expected.to validate_presence_of(:license_plate) }
       it { is_expected.to validate_presence_of(:brand_name) }
@@ -93,6 +97,16 @@ RSpec.describe Vehicle, type: :model do
         expect(vehicle.errors.full_messages.length).to eq 1
         expect(vehicle.errors.full_messages.last).to eq 'Placa de identificação deve ter o formato: AAA0A00'
       end
+    end
+  end
+
+  describe '#associated?' do
+    it 'belongs to user' do
+      create(:transporter)
+      user = create(:user)
+      vehicle = create(:vehicle, user: user)
+
+      expect(vehicle.user).to eq user
     end
   end
 end
