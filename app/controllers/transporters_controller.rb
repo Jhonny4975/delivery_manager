@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class TransportersController < ApplicationController
+  before_action :admin_authenticated?
   before_action :set_transporter, only: %i[show edit update]
 
   def index
@@ -53,5 +54,9 @@ class TransportersController < ApplicationController
 
   def set_transporter
     @transporter = Transporter.find(params[:id])
+  end
+
+  def admin_authenticated?
+    redirect_to root_path, status: :unauthorized unless user_signed_in? && current_user.admin?
   end
 end

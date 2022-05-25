@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class VehiclesController < ApplicationController
+  before_action :authenticated?
   before_action :set_vehicle, only: %i[show edit update destroy]
 
   def index
@@ -62,5 +63,9 @@ class VehiclesController < ApplicationController
 
   def set_vehicle
     @vehicle = Vehicle.find(params[:id])
+  end
+
+  def authenticated?
+    redirect_to new_user_session_path, notice: 'Faça login, primiro!' unless user_signed_in?
   end
 end
