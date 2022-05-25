@@ -6,7 +6,6 @@ describe 'user accesses login screen' do
   it 'and log in' do
     create(:transporter)
     user = create(:user)
-    # binding.pry
 
     visit root_path
     click_on 'Fazer login'
@@ -25,7 +24,6 @@ describe 'user accesses login screen' do
   it 'and log out' do
     create(:transporter)
     user = create(:user)
-    # binding.pry
 
     visit new_user_session_path
     within('form') do

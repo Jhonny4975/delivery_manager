@@ -4,6 +4,11 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'are there validations?' do
+    context 'with association' do
+      it { is_expected.to belong_to(:transporter).optional }
+      it { is_expected.to have_many(:vehicle).dependent(:destroy) }
+    end
+
     context 'with uniqueness' do
       subject { build(:user) }
 
@@ -67,6 +72,43 @@ RSpec.describe User, type: :model do
         expect(user.errors.full_messages.length).to eq 1
         expect(user.errors.full_messages.last).to eq 'E-mail não é válido'
       end
+    end
+
+    context 'with rules' do
+      it 'invalid when there is no transporters' do
+        user = described_class.new(attributes_for(:user))
+
+        expect(user).not_to be_valid
+        expect(user.errors.full_messages.length).to eq 2
+        expect(user.errors.full_messages.first).to eq 'E-mail não é válido'
+        expect(user.errors.full_messages.last).to eq 'E-mail não corresponde a nenhuma transportadora cadastrada.'
+      end
+
+      it 'does not belong to transporter when it is admin' do
+        user = described_class.new(attributes_for(:user, admin: true))
+
+        expect(user.transporter).to be_nil
+        expect(user).to be_admin
+      end
+    end
+  end
+
+  describe '#associated?' do
+    it 'belongs to transporter automatically' do
+      transporter = create(:transporter, domain: 'test.com')
+      user = create(:user, email: 'test@test.com')
+
+      expect(user.transporter).to eq transporter
+    end
+
+    it 'has many vehicles' do
+      create(:transporter)
+      user = create(:user)
+      one_vehicle = create(:vehicle, user: user)
+      two_vehicle = create(:vehicle, user: user)
+
+      expect(user.vehicle.first).to eq one_vehicle
+      expect(user.vehicle.last).to eq two_vehicle
     end
   end
 end

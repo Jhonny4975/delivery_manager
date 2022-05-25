@@ -4,6 +4,10 @@ require 'rails_helper'
 
 RSpec.describe Transporter, type: :model do
   describe 'are there validations?' do
+    context 'with association' do
+      it { is_expected.to have_many(:user).dependent(:destroy) }
+    end
+
     context 'with presence' do
       it { is_expected.to validate_presence_of(:corporate_name) }
       it { is_expected.to validate_presence_of(:brand_name) }
@@ -146,6 +150,24 @@ RSpec.describe Transporter, type: :model do
         expect(transporter.errors.full_messages.length).to eq 1
         expect(transporter.errors.full_messages.last).to eq 'CNPJ deve ter o formato: 00.000.000/0000-00'
       end
+    end
+  end
+
+  describe '#associated?' do
+    it 'get a user automatically' do
+      transporter = create(:transporter, domain: 'test.com')
+      user = create(:user, email: 'test@test.com')
+
+      expect(transporter.user.first).to eq user
+    end
+
+    it 'has many users' do
+      transporter = create(:transporter, domain: 'test.com')
+      one_user = create(:user, email: 'test@test.com')
+      two_user = create(:user, email: 'test2@test.com')
+
+      expect(transporter.user.first).to eq one_user
+      expect(transporter.user.last).to eq two_user
     end
   end
 end
