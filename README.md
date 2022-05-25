@@ -87,7 +87,7 @@ O acesso ao sistema é realizado através de um e-mail e uma senha e existem doi
 
 O usuário de uma transportadora deve ser capaz de acessar somente os dados da sua empresa. Ao criar uma conta no sistema, o sistema deve vincular automaticamente um novo usuário com sua transportadora através do domínio do e-mail informado pelo usuário.
 
-- [ ] Concluido?
+- [x] Concluido?
 
 ### **Cadastro de Veículos**
 
