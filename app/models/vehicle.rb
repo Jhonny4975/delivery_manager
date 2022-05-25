@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Vehicle < ApplicationRecord
+  belongs_to :user, optional: true
+
   validates :license_plate,
             :brand_name,
             :model,
