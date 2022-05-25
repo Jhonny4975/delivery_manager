@@ -17,7 +17,7 @@ def admin?(admin)
 end
 
 def set_transporter_domain
-  Transporter.all.each { |transporter| return transporter.domain if transporter.user.empty? }
+  Transporter.find_each { |transporter| return transporter.domain if transporter.user.empty? }
 
-  nil
+  Transporter.first&.domain
 end

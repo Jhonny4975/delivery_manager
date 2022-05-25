@@ -19,10 +19,8 @@ class User < ApplicationRecord
   def the_email_domain_valid?
     return self.admin = true if email.end_with?('@sistemadefrete.com.br')
 
-    Transporter.find_each do |transporter|
-      return self.transporter = transporter if email.end_with?(transporter.domain)
-    end
+    Transporter.find_each { |transporter| return self.transporter = transporter if email.end_with?(transporter.domain) }
 
-    errors.add(:email, 'não corresponde a nenhuma transportadora cadastrada.') if transporter.nil?
+    errors.add(:email, 'não corresponde a nenhuma transportadora cadastrada.')
   end
 end
