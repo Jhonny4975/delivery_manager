@@ -4,8 +4,11 @@ require 'rails_helper'
 
 describe 'User delete a vehicle' do
   it 'with sucess' do
+    create(:transporter)
+    user = create(:user)
     vehicle = create(:vehicle)
 
+    sign_in user
     visit vehicle_path(vehicle.id)
     click_on 'Deletar veículo'
 
@@ -15,14 +18,17 @@ describe 'User delete a vehicle' do
   end
 
   it 'without deleting other vehicles' do
-    first_vehicle = create(:vehicle)
-    second_vehicle = create(:vehicle)
+    create(:transporter)
+    user = create(:user)
+    one_vehicle = create(:vehicle, user: user)
+    two_vehicle = create(:vehicle, user: user)
 
-    visit vehicle_path(second_vehicle.id)
+    sign_in user
+    visit vehicle_path(two_vehicle.id)
     click_on 'Deletar veículo'
 
     expect(page).to have_current_path vehicles_path
     expect(page).to have_content 'Veículo excluído com sucesso!'
-    expect(page).to have_content first_vehicle.model
+    expect(page).to have_content one_vehicle.model
   end
 end

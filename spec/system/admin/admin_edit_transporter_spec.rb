@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe 'admin accesses the transporter edit screen' do
   it 'from details page' do
+    sign_in create(:user, admin: true)
     attr = build(:transporter)
     transporter = create(:transporter)
 
@@ -23,6 +24,7 @@ describe 'admin accesses the transporter edit screen' do
   end
 
   it 'with invalid attributes' do
+    sign_in create(:user, admin: true)
     transporter = create(:transporter)
 
     visit transporter_path(transporter.id)
