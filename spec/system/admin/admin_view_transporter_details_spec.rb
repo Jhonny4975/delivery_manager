@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe 'Admin view transporter details' do
   it 'Must see additional information' do
+    sign_in create(:user, admin: true)
     transporter = create(:transporter)
 
     visit transporters_path

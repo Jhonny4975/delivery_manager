@@ -4,9 +4,12 @@ require 'rails_helper'
 
 describe 'admin accesses the vehicle edit screen' do
   it 'from details page' do
+    create(:transporter)
+    user = create(:user)
     attr = build(:vehicle)
-    vehicle = create(:vehicle)
+    vehicle = create(:vehicle, user: user)
 
+    sign_in user
     visit vehicle_path(vehicle.id)
     click_on 'Editar veículo'
     fill_in 'Placa de identificação:', with: attr.license_plate
@@ -24,8 +27,11 @@ describe 'admin accesses the vehicle edit screen' do
   end
 
   it 'with invalid attributes' do
-    vehicle = create(:vehicle)
+    create(:transporter)
+    user = create(:user)
+    vehicle = create(:vehicle, user: user)
 
+    sign_in user
     visit vehicle_path(vehicle.id)
     click_on 'Editar veículo'
     fill_in 'Placa de identificação:', with: ''

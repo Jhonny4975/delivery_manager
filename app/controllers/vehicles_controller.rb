@@ -4,9 +4,9 @@ class VehiclesController < ApplicationController
   before_action :set_vehicle, only: %i[show edit update destroy]
 
   def index
-    @vehicles = Vehicle.all
+    @vehicles = current_user.vehicle
 
-    flash.now[:notice] = 'Não existem veículos cadastrados.' if @vehicles.empty?
+    flash.now[:notice] = 'Não existem veículos cadastrados.' if  @vehicles.empty?
   end
 
   def show; end
@@ -17,6 +17,7 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.user = current_user
 
     if @vehicle.save
       redirect_to @vehicle, notice: 'Veículo cadastrado com sucesso!'

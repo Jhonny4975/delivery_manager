@@ -4,8 +4,11 @@ require 'rails_helper'
 
 describe 'Admin view vehicle details' do
   it 'Must see additional information' do
-    vehicle = create(:vehicle)
+    create(:transporter)
+    user = create(:user)
+    vehicle = create(:vehicle, user: user)
 
+    sign_in user
     visit vehicles_path
     click_on vehicle.model
 

@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe 'the administrator accesses the transporters listing screen' do
   it 'and see all transporters' do
+    sign_in create(:user, admin: true)
     create(:transporter)
     create(:transporter)
 
@@ -19,6 +20,7 @@ describe 'the administrator accesses the transporters listing screen' do
   end
 
   it 'and see a message' do
+    sign_in create(:user, admin: true)
     visit transporters_path
 
     expect(page).to have_content 'Transportadoras'

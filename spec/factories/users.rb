@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :user do
     email { admin?(admin) }
-    branch_office_name { Faker::Commerce.brand }
+    branch_office_name { Faker::Company.unique.name }
     phone_number { Faker::PhoneNumber.cell_phone }
     password { Faker::Internet.password }
     admin { false }

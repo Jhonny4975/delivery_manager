@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe 'Admin register a transporter' do
   it 'from index page' do
+    sign_in create(:user, admin: true)
     visit transporters_path
     click_on 'Nova Transportadora'
 
@@ -18,6 +19,7 @@ describe 'Admin register a transporter' do
   end
 
   it 'with valid params' do
+    sign_in create(:user, admin: true)
     attributes = build(:transporter)
 
     visit new_transporter_path
@@ -33,6 +35,8 @@ describe 'Admin register a transporter' do
   end
 
   it 'with invalid params' do
+    sign_in create(:user, admin: true)
+
     visit new_transporter_path
     fill_in 'Nome Fantasia:', with: ''
     fill_in 'Razão Social:', with: ''
