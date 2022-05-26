@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class VehiclesController < ApplicationController
-  before_action :authenticated?
+  before_action :authenticate_user!
   before_action :set_vehicle, only: %i[show edit update destroy]
 
   def index
     @vehicles = current_user.vehicle
 
-    flash.now[:notice] = 'Não existem veículos cadastrados.' if  @vehicles.empty?
+    flash.now[:notice] = 'Não existem veículos cadastrados.' if @vehicles.empty?
   end
 
   def show; end
@@ -63,9 +63,5 @@ class VehiclesController < ApplicationController
 
   def set_vehicle
     @vehicle = Vehicle.find(params[:id])
-  end
-
-  def authenticated?
-    redirect_to new_user_session_path, notice: 'Faça login, primiro!' unless user_signed_in?
   end
 end

@@ -12,6 +12,20 @@
   <body>
     <header>
       <h1>Gerenciador de Entregas</h1>
+      <nav>
+        <% if user_signed_in? %>
+          <div>
+            <%= link_to 'Início', root_path %>
+          </div><br>
+          <div>
+            <strong>Filial:</strong> <%= current_user.branch_office_name %><br>
+            <strong>E-mail:</strong> <%= current_user.email %>
+          </div><br>
+          <div>
+            <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
+          </div>
+        <% end %>
+      </nav><br>
     </header>
     <main>
       <% if flash.any? %>

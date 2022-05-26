@@ -7,6 +7,14 @@
   <strong>Domínio:</strong> <%= @transporter.domain %>
 </div><br>
 <div>
-  <%= link_to 'Editar transportadora', edit_transporter_path(@transporter) %><br>
-  <%= link_to 'Voltar', transporters_path %>
+  <% if current_user.admin? %>
+  <div>
+    <%= link_to 'Editar transportadora', edit_transporter_path(@transporter) %><br>
+    <%= link_to 'Voltar', transporters_path %>
+  </div>
+  <% else %>
+  <div>
+    <%= link_to 'Voltar', user_root_path %>
+  </div>
+  <% end %>
 </div>

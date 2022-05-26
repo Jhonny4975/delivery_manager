@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TransportersController < ApplicationController
-  before_action :admin_authenticated?
+  before_action :admin_authenticated?, only: %i[index]
   before_action :set_transporter, only: %i[show edit update]
 
   def index
@@ -57,6 +57,6 @@ class TransportersController < ApplicationController
   end
 
   def admin_authenticated?
-    redirect_to root_path, status: :unauthorized unless user_signed_in? && current_user.admin?
+    redirect_to root_path, notice: 'Sem permissão!' unless user_signed_in? && current_user.admin?
   end
 end
