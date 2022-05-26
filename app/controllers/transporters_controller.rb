@@ -10,7 +10,9 @@ class TransportersController < ApplicationController
     flash.now[:notice] = 'Não existem transportadoras cadastradas.' if @transporters.empty?
   end
 
-  def show; end
+  def show
+    @budgets = Budget.all
+  end
 
   def new
     @transporter = Transporter.new

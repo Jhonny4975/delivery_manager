@@ -13,7 +13,11 @@
     <%= link_to 'Voltar', transporters_path %>
   </div>
   <% else %>
+  <aside >
+    <%= render template: 'budgets/index' %>
+  </aside><br>
   <div>
+    <%= link_to 'Configurar orçamento', new_budget_path %><br>
     <%= link_to 'Voltar', user_root_path %>
   </div>
   <% end %>
