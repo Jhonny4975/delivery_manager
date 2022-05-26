@@ -1,0 +1,30 @@
+<div>
+  <% if budget.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+      <% budget.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+<%= form_with model: budget do |form| %>
+  <div>
+    <%= form.number_field :max_size, step: :any, placeholder: 'Tamanho maxímo:' %><br>
+  </div>
+  <div>
+    <%= form.number_field :min_size, step: :any, placeholder: 'Tamanho minímo:' %><br>
+  </div>
+  <div>
+    <%= form.number_field :max_weight, step: :any, placeholder: 'Peso maxímo:' %><br>
+  </div>
+   <div>
+    <%= form.number_field :min_weight, step: :any, placeholder: 'Peso minímo:' %><br>
+  </div>
+  <div>
+    <%= form.number_field :price, step: :any, placeholder: 'Preço:' %><br>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
