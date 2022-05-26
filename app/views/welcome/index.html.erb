@@ -1,0 +1,13 @@
+<div>
+  <% if current_user.admin? %>
+  <div>
+    <%= link_to 'Transportadoras', transporters_path %>
+  </div>
+  <% else %>
+  <h3><%= link_to @transporter.brand_name, @transporter %></h3>
+
+  <div>
+    <%= link_to 'Veículos', vehicles_path %>
+  </div>
+  <% end %>
+</div>
