@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_26_192825) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_26_233010) do
   create_table "budgets", force: :cascade do |t|
     t.decimal "max_size", null: false
     t.decimal "min_size", null: false
@@ -21,6 +21,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_192825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["transporter_id"], name: "index_budgets_on_transporter_id"
+  end
+
+  create_table "deadlines", force: :cascade do |t|
+    t.integer "max_distance", null: false
+    t.integer "min_distance", null: false
+    t.integer "period", null: false
+    t.integer "transporter_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transporter_id"], name: "index_deadlines_on_transporter_id"
   end
 
   create_table "transporters", force: :cascade do |t|
@@ -70,6 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_192825) do
   end
 
   add_foreign_key "budgets", "transporters"
+  add_foreign_key "deadlines", "transporters"
   add_foreign_key "users", "transporters"
   add_foreign_key "vehicles", "users"
 end
