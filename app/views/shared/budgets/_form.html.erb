@@ -10,19 +10,19 @@
 </div>
 <%= form_with model: budget do |form| %>
   <div>
-    <%= form.number_field :max_size, step: :any, placeholder: 'Tamanho maxímo:' %><br>
+    <%= form.number_field :max_size, step: :any, placeholder: 'Tamanho maxímo (m³):' %><br>
   </div>
   <div>
-    <%= form.number_field :min_size, step: :any, placeholder: 'Tamanho minímo:' %><br>
+    <%= form.number_field :min_size, step: :any, placeholder: 'Tamanho minímo (m³):' %><br>
   </div>
   <div>
-    <%= form.number_field :max_weight, step: :any, placeholder: 'Peso maxímo:' %><br>
+    <%= form.number_field :max_weight, step: :any, placeholder: 'Peso maxímo (kg):' %><br>
   </div>
    <div>
-    <%= form.number_field :min_weight, step: :any, placeholder: 'Peso minímo:' %><br>
+    <%= form.number_field :min_weight, step: :any, placeholder: 'Peso minímo (kg):' %><br>
   </div>
   <div>
-    <%= form.number_field :price, step: :any, placeholder: 'Preço:' %><br>
+    <%= form.number_field :price, step: :any, placeholder: 'Preço (R$):' %><br>
   </div>
   <div>
     <%= form.submit %>

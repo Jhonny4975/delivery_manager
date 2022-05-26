@@ -13,7 +13,7 @@
     <tr>
       <td><%= budget.min_size %> - <%= budget.max_size %> m²</td>
       <td><%= budget.min_weight %> - <%= budget.max_weight %> kg</td>
-      <td>R$ <%= budget.price %></td>
+      <td><%= number_to_currency(budget.price) %></td>
     </tr>
     <% end %>
   </tbody>

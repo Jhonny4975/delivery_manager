@@ -12,7 +12,7 @@ describe 'user accesses set budget screen' do
 
     expect(page).to have_current_path new_budget_path
     expect(page).to have_content 'Orçamentos'
-    expect(page).to have_field 'Tamanho maxímo:'
+    expect(page).to have_field 'Tamanho maxímo (m³):'
     expect(page).to have_link 'Voltar'
   end
 
@@ -23,11 +23,11 @@ describe 'user accesses set budget screen' do
     sign_in create(:user)
     visit transporter_path(transporter.id)
     click_on 'Configurar orçamento'
-    fill_in 'Tamanho maxímo:', with: attr.max_size
-    fill_in 'Tamanho minímo:', with: attr.min_size
-    fill_in 'Peso maxímo:', with: attr.max_weight
-    fill_in 'Peso minímo:', with: attr.min_weight
-    fill_in 'Preço:', with: attr.price
+    fill_in 'Tamanho maxímo (m³):', with: attr.max_size
+    fill_in 'Tamanho minímo (m³):', with: attr.min_size
+    fill_in 'Peso maxímo (kg):', with: attr.max_weight
+    fill_in 'Peso minímo (kg):', with: attr.min_weight
+    fill_in 'Preço (R$):', with: attr.price
     click_on 'Criar Orçamento'
 
     expect(page).to have_current_path new_budget_path
@@ -35,7 +35,7 @@ describe 'user accesses set budget screen' do
     expect(page).to have_content attr.min_size
     expect(page).to have_content attr.max_weight
     expect(page).to have_content attr.min_weight
-    expect(page).to have_content attr.price
+    expect(page).to have_content 'R$'
   end
 
   it 'and set a budget with null attributes' do
@@ -44,8 +44,8 @@ describe 'user accesses set budget screen' do
     sign_in create(:user)
     visit transporter_path(transporter.id)
     click_on 'Configurar orçamento'
-    fill_in 'Tamanho maxímo:', with: ''
-    fill_in 'Tamanho minímo:', with: ''
+    fill_in 'Tamanho maxímo (m³):', with: ''
+    fill_in 'Tamanho minímo (m³):', with: ''
     click_on 'Criar Orçamento'
 
     expect(page).to have_current_path budgets_path
