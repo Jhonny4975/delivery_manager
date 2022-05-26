@@ -1,0 +1,18 @@
+<h2>Prazos</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Distância</th>
+      <th>Dias úteis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @budgets&.each do |budget| %>
+    <tr>
+      <td><%= budget.min_distance %> - <%= budget.max_distance %> (km)</td>
+      <td><%= number_to_currency(budget.period) %> dia(s)</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

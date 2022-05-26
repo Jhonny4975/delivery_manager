@@ -1,0 +1,12 @@
+<aside >
+  <%= render template: 'deadlines/index' %>
+</aside>
+<div>
+  <h2>Criar novo prazo</h2>
+</div>
+<div>
+  <%= render partial: 'shared/deadlines/form', locals: { deadline: @deadline } %>
+</div><br>
+ <div>
+    <%= link_to 'Voltar', current_user.transporter %>
+</div>

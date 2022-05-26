@@ -14,10 +14,16 @@
   </div>
   <% else %>
   <aside >
-    <%= render template: 'budgets/index' %>
+    <div>
+      <%= render template: 'budgets/index' %>
+    </div>
+    <div>
+      <%= render template: 'deadlines/index' %>
+    </div>
   </aside><br>
   <div>
     <%= link_to 'Configurar orçamento', new_budget_path %><br>
+    <%= link_to 'Configurar prazo', new_deadline_path %><br>
     <%= link_to 'Voltar', user_root_path %>
   </div>
   <% end %>
