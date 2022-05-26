@@ -93,7 +93,7 @@ O usuário de uma transportadora deve ser capaz de acessar somente os dados da s
 
 Um usuário da transportadora deve ser capaz de cadastrar os veículos utilizados em suas entregas. Cada cadastro deve armazenar a placa de identificação, a marca e o modelo do veículo, o ano de fabricação e a capacidade máxima de carga (peso).
 
-- [ ] Concluido?
+- [x] Concluido?
 
 ### **Configuração de preços**
 
@@ -110,7 +110,7 @@ E assim em diante.
 
 Além da configuração de preço de acordo com a tabela acima, a transportadora pode determinar um valor mínimo de cobrança de frete baseado exclusivamente na distância percorrida. Ou seja, durante o processo de cálculo de frete deve ser validado o valor mínimo de acordo com a quilometragem, evitando prejuízos.
 
-- [ ] Concluido?
+- [x] Concluido?
 
 ### **Configuração de prazos**
 
