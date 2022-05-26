@@ -16,6 +16,7 @@ describe 'Admin view transporter details' do
     expect(page).to have_content "Endereço: #{transporter.full_address}"
     expect(page).to have_content "Domínio: #{transporter.domain}"
     expect(page).to have_link 'Editar transportadora'
+    expect(page).not_to have_link 'Configurar orçamento'
     expect(page).to have_link 'Voltar'
   end
 

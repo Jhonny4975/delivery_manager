@@ -6,6 +6,7 @@ RSpec.describe Transporter, type: :model do
   describe 'are there validations?' do
     context 'with association' do
       it { is_expected.to have_many(:user).dependent(:destroy) }
+      it { is_expected.to have_many(:budget).dependent(:destroy) }
     end
 
     context 'with presence' do
