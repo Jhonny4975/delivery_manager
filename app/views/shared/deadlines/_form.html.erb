@@ -1,0 +1,24 @@
+<div>
+  <% if deadline.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+      <% deadline.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+<%= form_with model: deadline do |form| %>
+  <div>
+    <%= form.number_field :max_distance, placeholder: 'Distância máxima (km):' %><br>
+  </div>
+  <div>
+    <%= form.number_field :min_distance, placeholder: 'Distância miníma (km):' %><br>
+  </div>
+  <div>
+    <%= form.number_field :period, placeholder: 'prazo (em dias úteis):' %><br>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

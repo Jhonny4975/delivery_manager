@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :transporters, only: %i[index show new create edit update]
-  resources :budgets, only: %i[index new create]
+  resources :budgets, only: %i[new create]
+  resources :deadlines, only: %i[new create]
   resources :vehicles
 
   get '/welcome' => 'welcome#index', as: :user_root
