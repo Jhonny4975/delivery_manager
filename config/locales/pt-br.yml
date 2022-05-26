@@ -3,6 +3,7 @@ pt-BR:
     models:
       transporter: 'Transportadora'
       vehicle: 'Veículo'
+      budget: 'Orçamento'
     attributes:
       transporter:
         corporate_name: 'Razão Social'
@@ -16,3 +17,9 @@ pt-BR:
         model: 'Modelo'
         capacity: 'Capacidade'
         year: 'Ano'
+      budget:
+        max_size: 'Tamanho maxímo'
+        min_size: 'Tamanho minímo'
+        max_weight: 'Peso maxímo'
+        min_weight: 'Peso minímo'
+        price: 'Preço'
