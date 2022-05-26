@@ -6,7 +6,6 @@ describe 'user accesses sign up screen' do
   it 'and sign up' do
     create(:transporter)
     attr = build(:user)
-    # binding.pry
 
     visit root_path
     click_on 'Fazer login'
@@ -18,10 +17,12 @@ describe 'user accesses sign up screen' do
     fill_in 'Confirme sua senha', with: attr.password
     click_on 'Criar Usuário'
 
+    expect(page).to have_current_path user_root_path
     expect(page).to have_content 'Bem vindo! Você realizou seu registro com sucesso.'
-    expect(page).to have_button 'Sair'
     expect(page).to have_content attr.email
     expect(page).to have_content attr.branch_office_name
+    expect(page).to have_button 'Sair'
+    expect(page).to have_link 'Início'
   end
 
   it 'with null params' do

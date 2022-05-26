@@ -5,10 +5,9 @@ require 'rails_helper'
 describe 'User delete a vehicle' do
   it 'with sucess' do
     create(:transporter)
-    user = create(:user)
     vehicle = create(:vehicle)
 
-    sign_in user
+    sign_in create(:user)
     visit vehicle_path(vehicle.id)
     click_on 'Deletar veículo'
 

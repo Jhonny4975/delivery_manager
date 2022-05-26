@@ -19,4 +19,16 @@ describe 'Admin view vehicle details' do
     expect(page).to have_content "Capacidade: #{vehicle.capacity} kg"
     expect(page).to have_link 'Voltar'
   end
+
+  it 'and back to vehicles path' do
+    create(:transporter)
+    user = create(:user)
+    vehicle = create(:vehicle, user: user)
+
+    sign_in user
+    visit vehicle_path(vehicle.id)
+    click_on 'Voltar'
+
+    expect(page).to have_current_path vehicles_path
+  end
 end

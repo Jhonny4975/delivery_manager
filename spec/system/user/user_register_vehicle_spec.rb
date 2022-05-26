@@ -5,9 +5,8 @@ require 'rails_helper'
 describe 'User register a vehicle' do
   it 'from index page' do
     create(:transporter)
-    user = create(:user)
 
-    sign_in user
+    sign_in create(:user)
     visit vehicles_path
     click_on 'Novo Veículo'
 
@@ -23,10 +22,9 @@ describe 'User register a vehicle' do
 
   it 'with valid params' do
     create(:transporter)
-    user = create(:user)
     attributes = build(:vehicle)
 
-    sign_in user
+    sign_in create(:user)
     visit new_vehicle_path
     fill_in 'Placa de identificação:', with: attributes.license_plate
     fill_in 'Marca:', with: attributes.brand_name
@@ -41,9 +39,8 @@ describe 'User register a vehicle' do
 
   it 'with invalid params' do
     create(:transporter)
-    user = create(:user)
 
-    sign_in user
+    sign_in create(:user)
     visit new_vehicle_path
     fill_in 'Placa de identificação:', with: ''
     fill_in 'Marca:', with: ''

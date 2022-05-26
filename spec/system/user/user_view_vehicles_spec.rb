@@ -10,7 +10,8 @@ describe 'the user accesses the vehicles listing screen' do
     two_vehicle = create(:vehicle, user: user)
 
     sign_in user
-    visit vehicles_path
+    visit user_root_path
+    click_on 'Veículos'
 
     expect(page).to have_content 'Veículos'
     expect(page).to have_link one_vehicle.model
@@ -22,10 +23,10 @@ describe 'the user accesses the vehicles listing screen' do
 
   it 'and see a message' do
     create(:transporter)
-    user = create(:user)
 
-    sign_in user
-    visit vehicles_path
+    sign_in create(:user)
+    visit user_root_path
+    click_on 'Veículos'
 
     expect(page).to have_content 'Não existem veículos cadastrados.'
   end
