@@ -7,6 +7,7 @@ RSpec.describe Transporter, type: :model do
     context 'with association' do
       it { is_expected.to have_many(:user).dependent(:destroy) }
       it { is_expected.to have_many(:budget).dependent(:destroy) }
+      it { is_expected.to have_many(:deadline).dependent(:destroy) }
     end
 
     context 'with presence' do
