@@ -4,6 +4,7 @@ pt-BR:
       transporter: 'Transportadora'
       vehicle: 'Veículo'
       budget: 'Orçamento'
+      deadline: 'Prazo'
     attributes:
       transporter:
         corporate_name: 'Razão Social'
@@ -18,8 +19,12 @@ pt-BR:
         capacity: 'Capacidade'
         year: 'Ano'
       budget:
-        max_size: 'Tamanho maxímo'
+        max_size: 'Tamanho máximo'
         min_size: 'Tamanho minímo'
-        max_weight: 'Peso maxímo'
+        max_weight: 'Peso máximo'
         min_weight: 'Peso minímo'
         price: 'Preço'
+      deadline:
+        max_distance: 'Distância máxima'
+        min_distance: 'Distância miníma'
+        period: 'Prazo'
