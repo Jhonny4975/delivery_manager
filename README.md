@@ -116,7 +116,7 @@ Além da configuração de preço de acordo com a tabela acima, a transportadora
 
 Cada transportadora deve fazer sua configuração de prazos de entrega de acordo com a distância entre a origem e o destino. O prazo pode ser calculado como um fator de dias úteis a partir da distância. O cadastro pode ser feito a partir de intervalos de distância, por exemplo: para entregas de 0 a 100km, o prazo é de 2 dias úteis; de 101km a 300km, o prazo é de 5 dias úteis etc.
 
-- [ ] Concluido?
+- [x] Concluido?
 
 ### **Consulta de preços**
 
