@@ -11,11 +11,11 @@ class BudgetsController < ApplicationController
     @budget.transporter = current_user.transporter
 
     if @budget.save
-      flash[:notice] = 'Linha cadastrada.'
+      flash[:notice] = 'Orçamento cadastrado com sucesso!'
 
       redirect_to new_budget_path
     else
-      flash.now[:notice] = 'Não foi possivel criar a linha.'
+      flash.now[:notice] = 'Não foi possivel criar a orçamento.'
 
       render :new
     end

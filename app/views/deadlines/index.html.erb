@@ -8,10 +8,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @budgets&.each do |budget| %>
+    <% @deadlines&.each do |deadline| %>
     <tr>
-      <td><%= budget.min_distance %> - <%= budget.max_distance %> (km)</td>
-      <td><%= number_to_currency(budget.period) %> dia(s)</td>
+      <td><%= deadline.min_distance %> - <%= deadline.max_distance %> (km)</td>
+      <td><%= deadline.period %> dia(s)</td>
     </tr>
     <% end %>
   </tbody>

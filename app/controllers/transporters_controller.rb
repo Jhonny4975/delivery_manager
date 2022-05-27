@@ -12,6 +12,7 @@ class TransportersController < ApplicationController
 
   def show
     @budgets = Budget.all
+    @deadlines = Deadline.all
   end
 
   def new
