@@ -3,6 +3,7 @@
 class Transporter < ApplicationRecord
   has_many :user, dependent: :destroy
   has_many :budget, dependent: :destroy
+  has_many :deadline, dependent: :destroy
 
   validates :corporate_name,
             :brand_name,
