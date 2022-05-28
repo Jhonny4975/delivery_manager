@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
 
-  resources :transporters, only: %i[index show new create edit update]
+  resources :transporters, only: %i[index show new create edit update] do
+    get 'search', on: :collection
+  end
+
   resources :budgets, only: %i[new create]
   resources :deadlines, only: %i[new create]
   resources :vehicles
