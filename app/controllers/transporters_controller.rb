@@ -43,6 +43,16 @@ class TransportersController < ApplicationController
     end
   end
 
+  def search
+    set_data
+
+    if @transporters.blank? && @prices.blank? && @deadlines.blank?
+      flash[:notice] = 'Não houve resultados para sua consulta...'
+
+      redirect_to user_root_path
+    end
+  end
+
   private
 
   def transporter_params
@@ -53,6 +63,26 @@ class TransportersController < ApplicationController
       :registration_number,
       :full_address
     )
+  end
+
+  def search_params
+    params.permit(
+      :height,
+      :length,
+      :width,
+      :weight,
+      :distance
+    )
+  end
+
+  def set_data
+    search_data = BudgetDataFilterService.new(search_params)
+    search_data.filter
+    search_data.price_calculator(search_params[:distance])
+
+    @transporters = search_data.transporters
+    @deadlines = search_data.deadlines
+    @prices = search_data.prices
   end
 
   def set_transporter
