@@ -1,20 +1,29 @@
-<h2>Orçamentos</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Metros cúbicos</th>
-      <th>Peso</th>
-      <th>Valor por km</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @budgets&.each do |budget| %>
-    <tr>
-      <td><%= budget.min_size %> - <%= budget.max_size %> m³</td>
-      <td><%= budget.min_weight %> - <%= budget.max_weight %> kg</td>
-      <td><%= number_to_currency(budget.price) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<section>
+  <div>
+    <h2>Orçamentos</h2>
+  </div>
+  <% if @budgets.present? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Metros cúbicos</th>
+          <th>Peso</th>
+          <th>Valor por km</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @budgets&.each do |budget| %>
+        <tr>
+          <td><%= budget.min_size %> - <%= budget.max_size %> m³</td>
+          <td><%= budget.min_weight %> - <%= budget.max_weight %> kg</td>
+          <td><%= number_to_currency(budget.price) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div>
+      <h5>Nenhuma configuração de orçamento cadastrada!</h5>
+    </div>
+  <% end %>
+</section>

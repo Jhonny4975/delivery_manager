@@ -67,7 +67,7 @@ describe 'admin access the budget search barr' do
     expect(page).to have_content 'Transportadora'
     expect(page).to have_content 'Preço'
     expect(page).to have_content 'Prazo'
-    expect(page).to have_content first_transporter.brand_name
+    expect(page).to have_content first_transporter.brand_name, maximum: 1
     expect(page).to have_content number_to_currency(first_transporter.budget.first.price * 200)
     expect(page).to have_content "#{first_transporter.deadline.first.period} dia(s)"
     expect(page).not_to have_content number_to_currency(first_transporter.budget.last.price * 200)
