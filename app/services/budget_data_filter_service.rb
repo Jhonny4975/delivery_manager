@@ -41,12 +41,4 @@ class BudgetDataFilterService
 
     objects
   end
-
-  def transporter
-    @transporters.select! do |transporter|
-      transporter.deadline.ids.map do |id|
-        @deadlines.ids.include?(id) unless @deadlines.size < 2
-      end
-    end
-  end
 end
