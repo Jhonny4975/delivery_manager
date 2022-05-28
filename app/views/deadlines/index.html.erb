@@ -1,18 +1,27 @@
-<h2>Prazos</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Distância</th>
-      <th>Dias úteis</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @deadlines&.each do |deadline| %>
-    <tr>
-      <td><%= deadline.min_distance %> - <%= deadline.max_distance %> (km)</td>
-      <td><%= deadline.period %> dia(s)</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<section>
+  <div>
+    <h2>Prazos</h2>
+  </div>
+  <% if @deadlines.present? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Distância</th>
+          <th>Dias úteis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @deadlines&.each do |deadline| %>
+        <tr>
+          <td><%= deadline.min_distance %> - <%= deadline.max_distance %> (km)</td>
+          <td><%= deadline.period %> dia(s)</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div>
+      <h5>Nenhuma configuração de prazo cadastrada!</h5>
+    </div>
+  <% end %>
+</section>

@@ -13,7 +13,7 @@ class BudgetDataFilterService
     )
   end
 
-  def filter
+  def call
     @deadlines = reapeated?(@deadlines)
     @budgets = reapeated?(@budgets)
 
@@ -26,12 +26,14 @@ class BudgetDataFilterService
     end
   end
 
+  private
+
   def reapeated?(objects)
     transporters_ids = []
 
     objects.each do |object|
       if transporters_ids.count(object.transporter_id) >= 1
-        objects = objects.select { |d| d != object }
+        objects = objects.reject { |instance| instance == object }
       else
         transporters_ids << object.transporter_id
       end

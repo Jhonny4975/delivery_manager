@@ -3,6 +3,16 @@
 require 'rails_helper'
 
 describe 'user accesses set deadline screen' do
+  it 'and there is no deadline settings' do
+    transporter = create(:transporter)
+
+    sign_in create(:user)
+    visit transporter_path(transporter.id)
+
+    expect(page).to have_content 'Prazos'
+    expect(page).to have_content 'Nenhuma configuração de prazo cadastrada!'
+  end
+
   it 'and see set deadline page' do
     transporter = create(:transporter)
 
