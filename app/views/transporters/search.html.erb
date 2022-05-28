@@ -1,0 +1,31 @@
+<section>
+  <h2>Orçamentos disponíveis:</h2>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Transportadora</th>
+          <th>Preço</th>
+          <th>Prazo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <% @transporters.each do |transporter| %>
+          <td><%= transporter.brand_name %></td>
+        <% end %>
+        <% @prices.each do |price| %>
+          <td><%= number_to_currency(price) %></td>
+        <% end %>
+        <% @deadlines.each do |deadline| %>
+          <td><%= deadline.period %> dia(s)</td>
+        <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div><br>
+  <div>
+    <%= link_to 'Voltar', user_root_path %>
+  </div>
+</section>
