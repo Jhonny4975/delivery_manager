@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_26_233010) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_28_235915) do
   create_table "budgets", force: :cascade do |t|
     t.decimal "max_size", null: false
     t.decimal "min_size", null: false
@@ -41,6 +41,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_233010) do
     t.string "full_address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "min_price"
+    t.integer "stats", default: 0
     t.index ["brand_name"], name: "unique_brand_name", unique: true
     t.index ["corporate_name"], name: "unique_corporate_name", unique: true
     t.index ["domain"], name: "unique_domain", unique: true
