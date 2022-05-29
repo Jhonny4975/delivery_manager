@@ -12,6 +12,9 @@ pt-BR:
         registration_number: 'CNPJ'
         full_address: 'Endereço'
         domain: 'Domínio'
+        stats:
+          inactive: 'Inativo'
+          active: 'Ativo'
       vehicle:
         license_plate: 'Placa de identificação'
         brand_name: 'Marca'
