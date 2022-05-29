@@ -22,7 +22,9 @@ class BudgetDataFilterService
 
   def price_calculator(distance)
     @prices = @budgets.map do |budget|
-      distance.to_d * budget.price
+      price = distance.to_d * budget.price
+
+      budget.transporter.min_price > price ? budget.transporter.min_price : price
     end
   end
 

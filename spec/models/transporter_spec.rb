@@ -16,6 +16,7 @@ RSpec.describe Transporter, type: :model do
       it { is_expected.to validate_presence_of(:registration_number) }
       it { is_expected.to validate_presence_of(:domain) }
       it { is_expected.to validate_presence_of(:full_address) }
+      it { is_expected.to define_enum_for(:stats).with_values(active: 0, inactive: 5) }
     end
 
     context 'with uniqueness' do
