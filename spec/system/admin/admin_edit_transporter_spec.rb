@@ -23,6 +23,20 @@ describe 'admin accesses the transporter edit screen' do
     expect(page).to have_content transporter.full_address
   end
 
+  it 'changing status to inactive' do
+    sign_in create(:user, admin: true)
+    transporter = create(:transporter)
+
+    visit transporter_path(transporter.id)
+    click_on 'Editar transportadora'
+    choose 'transporter_stats_inactive'
+    click_on 'Atualizar Transportadora'
+    transporter.reload
+
+    expect(page).to have_current_path transporter_path(transporter.id)
+    expect(page).to have_content 'Inativo'
+  end
+
   it 'with invalid attributes' do
     sign_in create(:user, admin: true)
     transporter = create(:transporter)
