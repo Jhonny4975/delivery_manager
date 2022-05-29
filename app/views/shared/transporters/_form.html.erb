@@ -11,20 +11,28 @@
 
 <%= form_with model: transporter do |form| %>
   <div>
-    <%= form.text_field :brand_name, placeholder: 'Nome Fantasia:' %><br>
-  </div>
+    <%= form.text_field :brand_name, placeholder: 'Nome Fantasia:' %>
+  </div><br>
   <div>
-    <%= form.text_field :corporate_name, placeholder: 'Razão Social:' %><br>
-  </div>
+    <%= form.text_field :corporate_name, placeholder: 'Razão Social:' %>
+  </div><br>
   <div>
-    <%= form.text_field :registration_number, placeholder: 'CNPJ:' %><br>
-  </div>
+    <%= form.text_field :registration_number, placeholder: 'CNPJ:' %>
+  </div><br>
    <div>
-    <%= form.text_field :domain, placeholder: 'Domínio:' %><br>
+    <%= form.text_field :domain, placeholder: 'Domínio:' %>
+  </div><br>
+  <div>
+    <%= form.text_field :full_address, placeholder: 'Endereço:' %>
+  </div><br>
+  <div>
+    <%= form.radio_button :stats, :active %>
+    <%= form.label :stats, Transporter.human_enum_name(:stats, :active) %>
   </div>
   <div>
-    <%= form.text_field :full_address, placeholder: 'Endereço:' %><br>
-  </div>
+    <%= form.radio_button :stats, :inactive %>
+    <%= form.label :stats, Transporter.human_enum_name(:stats, :inactive) %>
+  </div><br>
   <div>
     <%= form.submit %>
   </div>
