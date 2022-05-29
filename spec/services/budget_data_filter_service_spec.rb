@@ -24,7 +24,6 @@ RSpec.describe BudgetDataFilterService, type: :model do
       deadline = create(:deadline, max_distance: search_params[:distance], min_distance: 1, transporter: transporter)
       create(:deadline, max_distance: 400, min_distance: search_params[:distance], transporter: transporter)
       price = (search_params[:distance] * transporter.budget.first.price)
-
       search_data = described_class.new(search_params)
 
       search_data.call
@@ -36,6 +35,30 @@ RSpec.describe BudgetDataFilterService, type: :model do
       expect(search_data.deadlines.first).to eq deadline
       expect(search_data.prices.size).to eq 1
       expect(search_data.prices.first.to_i).to eq price
+    end
+
+    it 'with inactive transporter' do
+      transporter = create(:transporter, stats: 'inactive')
+      create(:deadline, max_distance: search_params[:distance], min_distance: 1, transporter: transporter)
+      create(:budget, price: 0.5, max_weight: search_params[:weight], min_weight: 0.1,
+                      min_size: 0.1, max_size: search_params[:width], transporter: transporter)
+      search_data = described_class.new(search_params)
+
+      search_data.call
+
+      expect(search_data.transporters).to be_empty
+    end
+
+    it 'when the price is less than the minimum value' do
+      search_params[:distance] = 10
+      transporter = create(:transporter, min_price: 50)
+      create(:budget, price: 0.5, max_weight: search_params[:weight], min_weight: 0.1,
+                      min_size: 0.1, max_size: search_params[:width], transporter: transporter)
+      search_data = described_class.new(search_params)
+
+      search_data.price_calculator(search_params[:distance])
+
+      expect(search_data.prices.last).to eq transporter.min_price
     end
   end
 end
