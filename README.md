@@ -79,7 +79,7 @@ Um administrador do sistema deve ser capaz de cadastrar novas transportadoras in
 
 Uma transportadora pode ser desativada por um administrador do sistema. Neste caso, os usuários da transportadora seguem com acesso à plataforma, mas a transportadora não é mais considerada em novas consultas de preços e, consequentemente, não deve receber novas ordens de serviço.
 
-- [ ] Concluido?
+- [x] Concluido?
 
 ### **Usuários administradores e de transportadoras**
 
@@ -126,7 +126,7 @@ Todas as transportadoras ativas devem ser consideradas, desde que possuam preço
 
 O resultado de uma consulta de preços deve ser armazenado para consultas futuras.
 
-- [ ] Concluido?
+- [x] Concluido?
 
 ### **Criar Ordem de Serviço**
 
