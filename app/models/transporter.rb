@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Transporter < ApplicationRecord
+  enum stats: { active: 0, inactive: 5 }
+
   has_many :user, dependent: :destroy
   has_many :budget, dependent: :destroy
   has_many :deadline, dependent: :destroy
