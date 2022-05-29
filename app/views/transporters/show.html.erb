@@ -4,7 +4,11 @@
   <strong>Razão Social:</strong> <%= @transporter.corporate_name %><br>
   <strong>CNPJ:</strong> <%= @transporter.registration_number %><br>
   <strong>Endereço:</strong> <%= @transporter.full_address %><br>
-  <strong>Domínio:</strong> <%= @transporter.domain %>
+  <strong>Domínio:</strong> <%= @transporter.domain %><br>
+  <strong>status:</strong> <%= Transporter.human_enum_name(:stats, @transporter.stats)%><br>
+<% if @transporter.min_price.present? %>
+  <strong>Preço minímo:</strong> <%= number_to_currency(@transporter.min_price) %>
+<% end %>
 </div><br>
 <div>
   <% if current_user.admin? %>
@@ -14,6 +18,11 @@
   </div>
   <% else %>
   <aside >
+  <% if @transporter.min_price.nil? %>
+    <div>
+      <%= render template: 'transporters/min_price' %>
+    </div><br>
+  <% end %>
     <div>
       <%= render template: 'budgets/index' %>
     </div><br>

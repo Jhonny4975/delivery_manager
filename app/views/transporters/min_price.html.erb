@@ -1,0 +1,12 @@
+<section>
+  <p>Cadastre um preço minímo para suas entregas</p>
+
+  <%= form_with model: @transporter do |form| %>
+    <div>
+      <%= form.text_field :min_price, placeholder: 'Preço minímo:' %><br>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</section>

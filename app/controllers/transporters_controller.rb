@@ -2,7 +2,7 @@
 
 class TransportersController < ApplicationController
   before_action :admin_authenticated?, only: %i[index]
-  before_action :set_transporter, only: %i[show edit update]
+  before_action :set_transporter, only: %i[show edit update min_price]
 
   def index
     @transporters = Transporter.all
@@ -43,6 +43,8 @@ class TransportersController < ApplicationController
     end
   end
 
+  def min_price; end
+
   def search
     set_data
 
@@ -61,17 +63,9 @@ class TransportersController < ApplicationController
       :brand_name,
       :domain,
       :registration_number,
-      :full_address
-    )
-  end
-
-  def search_params
-    params.permit(
-      :height,
-      :length,
-      :width,
-      :weight,
-      :distance
+      :full_address,
+      :min_price,
+      :stats
     )
   end
 

@@ -34,7 +34,7 @@ class BudgetDataFilterService
     transporters_ids = []
 
     objects.each do |object|
-      if transporters_ids.count(object.transporter_id) >= 1
+      if transporters_ids.count(object.transporter_id) >= 1 || object.transporter.inactive?
         objects = objects.reject { |instance| instance == object }
       else
         transporters_ids << object.transporter_id
