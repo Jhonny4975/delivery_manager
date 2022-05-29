@@ -6,7 +6,7 @@ FactoryBot.define do
     min_size { Faker::Number.decimal(l_digits: 1, r_digits: 1) }
     max_weight { Faker::Number.decimal(l_digits: 2, r_digits: 1) }
     min_weight { Faker::Number.decimal(l_digits: 1, r_digits: 1) }
-    price { Faker::Number.decimal(l_digits: 2) }
+    price { Faker::Number.decimal(l_digits: 1) }
     transporter
   end
 end

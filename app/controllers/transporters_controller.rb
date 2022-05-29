@@ -76,9 +76,9 @@ class TransportersController < ApplicationController
   end
 
   def set_data
-    search_data = BudgetDataFilterService.new(search_params)
+    search_data = BudgetDataFilterService.new(params)
     search_data.call
-    search_data.price_calculator(search_params[:distance])
+    search_data.price_calculator(params[:distance])
 
     @transporters = search_data.transporters
     @deadlines = search_data.deadlines

@@ -7,6 +7,8 @@ FactoryBot.define do
     domain { set_domain }
     registration_number { Faker::Company.brazilian_company_number(formatted: true) }
     full_address { Faker::Address.full_address }
+    min_price { Faker::Number.digit }
+    stats { 'active' }
   end
 end
 

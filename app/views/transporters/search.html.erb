@@ -11,17 +11,13 @@
         </tr>
       </thead>
       <tbody>
+        <% @transporters.each_with_index do |transporter, index| %>
         <tr>
-        <% @transporters.each do |transporter| %>
           <td><%= transporter.brand_name %></td>
-        <% end %>
-        <% @prices.each do |price| %>
-          <td><%= number_to_currency(price) %></td>
-        <% end %>
-        <% @deadlines.each do |deadline| %>
-          <td><%= deadline.period %> dia(s)</td>
-        <% end %>
+          <td><%= number_to_currency(@prices[index]) %></td>
+          <td><%= @deadlines[index].period %> dia(s)</td>
         </tr>
+        <% end %>
       </tbody>
     </table>
   </div><br>
