@@ -1,6 +1,7 @@
 <section>
-  <h2>Orçamentos disponíveis:</h2>
-
+  <div>
+    <h2>Orçamentos disponíveis:</h2>
+  </div>
   <div>
     <table>
       <thead>
@@ -22,6 +23,20 @@
     </table>
   </div><br>
   <div>
-    <%= link_to 'Voltar', user_root_path %>
+    <div>
+      <h2>Criar ordem de serviço</h2>
+    </div>
+    <div>
+      <%= render template: 'service_orders/new' %>
+    </div>
   </div>
+  <div>
+    <h2>Deseja fazer uma nova consulta?</h2>
+  </div>
+  <div>
+    <%= render partial: 'shared/search/quotes' %>
+  </div>
+  <div>
+    <%= link_to 'Voltar', user_root_path %>
+  </div><br>
 </section>
