@@ -8,6 +8,7 @@ RSpec.describe Transporter, type: :model do
       it { is_expected.to have_many(:user).dependent(:destroy) }
       it { is_expected.to have_many(:budget).dependent(:destroy) }
       it { is_expected.to have_many(:deadline).dependent(:destroy) }
+      it { is_expected.to have_many(:service_order).dependent(:destroy) }
     end
 
     context 'with presence' do
