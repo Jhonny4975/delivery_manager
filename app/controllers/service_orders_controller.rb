@@ -2,7 +2,13 @@
 
 class ServiceOrdersController < ApplicationController
   def index
-    @service_orders = ServiceOrder.all
+    if ServiceOrder.all.present?
+      @service_orders = ServiceOrder.all
+    else
+      @service_orders = []
+
+      flash[:notice] = 'Não há nenhuma ordem de serviço existente.'
+    end
   end
 
   def search
