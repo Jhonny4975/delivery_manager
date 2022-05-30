@@ -1,0 +1,50 @@
+<div>
+  <% if @service_order.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+      <% @service_order.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+<%= form_with model: @service_order do |form| %>
+  <div>
+    <%= form.hidden_field :height, value: @search_params[:height] %>
+    <%= form.hidden_field :length, value: @search_params[:length] %>
+    <%= form.hidden_field :width, value: @search_params[:width] %>
+    <%= form.hidden_field :weight, value: @search_params[:weight] %>
+    <%= form.hidden_field :distance, value: @search_params[:distance] %>
+  </div>
+  <div>
+    <%= form.label :transporter_id %><br>
+    <%= form.collection_select :transporter_id, @transporters, :id, :brand_name %>
+  </div><br>
+  <div>
+    <%= form.label :pickup_address %><br>
+    <%= form.text_field :pickup_address, placeholder: '(Cep e Número)' %>
+  </div><br>
+  <div>
+    <%= form.label :delivery_address %><br>
+    <%= form.text_field :delivery_address, placeholder: '(Cep e Número)' %>
+  </div><br>
+  <div>
+    <%= form.label :sku %><br>
+    <%= form.text_field :sku %>
+  </div><br>
+  <div>
+    <%= form.label :recipient_name %><br>
+    <%= form.text_field :recipient_name %>
+  </div><br>
+  <div>
+    <%= form.label :recipient_phone_number %><br>
+    <%= form.text_field :recipient_phone_number, placeholder: '(XX) xxxxx-xxxx' %>
+  </div><br>
+  <div>
+    <%= form.label :recipient_document %><br>
+    <%= form.text_field :recipient_document, placeholder: 'xxx.xxx.xxx-xx' %>
+  </div><br>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
