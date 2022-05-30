@@ -25,6 +25,7 @@ describe 'administrator accesses the create work order screen' do
     expect(page).to have_content transporter.brand_name
     expect(page).to have_content ServiceOrder.last.code
     expect(page).to have_content ServiceOrder.last.stats
+    expect(page).to have_link 'Voltar'
   end
 
   it 'and receive error messages when filling fields with null values' do
