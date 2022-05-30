@@ -8,11 +8,11 @@ describe 'admin access the budget search barr' do
     visit user_root_path
 
     expect(page).to have_content 'Consultar orçamentos'
-    expect(page).to have_field 'Altura do produto (m):'
-    expect(page).to have_field 'Comprimento do produto (m):'
-    expect(page).to have_field 'Largura do produto (m):'
-    expect(page).to have_field 'Peso do produto (kg):'
-    expect(page).to have_field 'Distância (km):'
+    expect(page).to have_field 'Altura do produto'
+    expect(page).to have_field 'Comprimento do produto'
+    expect(page).to have_field 'Largura do produto'
+    expect(page).to have_field 'Peso do produto'
+    expect(page).to have_field 'Distância'
     expect(page).to have_button 'Consultar'
   end
 
@@ -27,11 +27,11 @@ describe 'admin access the budget search barr' do
 
     sign_in create(:user, admin: true)
     visit user_root_path
-    fill_in 'Altura do produto (m):', with: 1
-    fill_in 'Comprimento do produto (m):', with: 1
-    fill_in 'Largura do produto (m):', with: 1.5
-    fill_in 'Peso do produto (kg):', with: 10
-    fill_in 'Distância (km):', with: 150
+    fill_in 'Altura do produto', with: 1
+    fill_in 'Comprimento do produto', with: 1
+    fill_in 'Largura do produto', with: 1.5
+    fill_in 'Peso do produto', with: 10
+    fill_in 'Distância', with: 150
     click_on 'Consultar'
 
     expect(page).to have_content 'Orçamentos disponíveis:'
@@ -58,14 +58,16 @@ describe 'admin access the budget search barr' do
 
     sign_in create(:user, admin: true)
     visit user_root_path
-    fill_in 'Altura do produto (m):', with: 1
-    fill_in 'Comprimento do produto (m):', with: 1
-    fill_in 'Largura do produto (m):', with: 2
-    fill_in 'Peso do produto (kg):', with: 30
-    fill_in 'Distância (km):', with: 200
+    fill_in 'Altura do produto', with: 1
+    fill_in 'Comprimento do produto', with: 1
+    fill_in 'Largura do produto', with: 2
+    fill_in 'Peso do produto', with: 30
+    fill_in 'Distância', with: 200
     click_on 'Consultar'
 
-    expect(page).to have_content first_transporter.brand_name, maximum: 1
+    within('section div table') do
+      expect(page).to have_content first_transporter.brand_name, maximum: 1
+    end
     expect(page).to have_content number_to_currency(first_transporter.min_price)
     expect(page).to have_content "#{first_transporter.deadline.first.period} dia(s)"
     expect(page).not_to have_content "#{first_transporter.deadline.last.period} dia(s)"
@@ -79,11 +81,11 @@ describe 'admin access the budget search barr' do
 
     sign_in create(:user, admin: true)
     visit user_root_path
-    fill_in 'Altura do produto (m):', with: 1
-    fill_in 'Comprimento do produto (m):', with: 1
-    fill_in 'Largura do produto (m):', with: 2
-    fill_in 'Peso do produto (kg):', with: 30
-    fill_in 'Distância (km):', with: 200
+    fill_in 'Altura do produto', with: 1
+    fill_in 'Comprimento do produto', with: 1
+    fill_in 'Largura do produto', with: 2
+    fill_in 'Peso do produto', with: 30
+    fill_in 'Distância', with: 200
     click_on 'Consultar'
 
     expect(page).not_to have_content transporter.brand_name
@@ -94,11 +96,11 @@ describe 'admin access the budget search barr' do
   it 'and there is no budgets' do
     sign_in create(:user, admin: true)
     visit user_root_path
-    fill_in 'Altura do produto (m):', with: 1
-    fill_in 'Comprimento do produto (m):', with: 1
-    fill_in 'Largura do produto (m):', with: 1.5
-    fill_in 'Peso do produto (kg):', with: 10
-    fill_in 'Distância (km):', with: 150
+    fill_in 'Altura do produto', with: 1
+    fill_in 'Comprimento do produto', with: 1
+    fill_in 'Largura do produto', with: 1.5
+    fill_in 'Peso do produto', with: 10
+    fill_in 'Distância', with: 150
     click_on 'Consultar'
 
     expect(page).to have_current_path user_root_path
