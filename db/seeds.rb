@@ -32,6 +32,11 @@ puts '--------------- creating deadlines ---------------'
 FactoryBot.create_list(:deadline, 2)
 FactoryBot.create(:deadline, transporter: visit_transporter )
 
+puts '------------- creating service orders -------------'
+
+FactoryBot.create_list(:service_order, 2)
+FactoryBot.create(:service_order, transporter: visit_transporter )
+
 puts
 puts '--------------------------------------------------'
 puts 'Finished "seeds"'
