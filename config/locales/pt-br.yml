@@ -1,10 +1,19 @@
 pt-BR:
+  shared:
+    search:
+      quotes:
+        height: 'Altura do produto'
+        width: 'Largura do produto'
+        length: 'Comprimento do produto'
+        weight: 'Peso do produto'
+        distance: 'Distância'
   activerecord:
     models:
       transporter: 'Transportadora'
       vehicle: 'Veículo'
       budget: 'Orçamento'
       deadline: 'Prazo'
+      service_order: 'Ordem de serviço'
     attributes:
       transporter:
         corporate_name: 'Razão Social'
@@ -31,3 +40,16 @@ pt-BR:
         max_distance: 'Distância máxima'
         min_distance: 'Distância miníma'
         period: 'Prazo'
+      service_order:
+        height: 'Altura do produto'
+        width: 'Largura do produto'
+        length: 'Comprimento do produto'
+        weight: 'Peso do produto'
+        distance: 'Distância'
+        transporter_id: 'Transportadora'
+        pickup_address: 'Endereço de retirada'
+        delivery_address: 'Endereço de entrega'
+        sku: 'Código do produto'
+        recipient_name: 'Nome do destinatário'
+        recipient_phone_number: 'Telefone do destinatário'
+        recipient_document: 'CPF do destinatário'
