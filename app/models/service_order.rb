@@ -5,6 +5,21 @@ class ServiceOrder < ApplicationRecord
 
   belongs_to :transporter
 
+  validates :height,
+            :length,
+            :width,
+            :weight,
+            :distance,
+            :pickup_address,
+            :recipient_name,
+            :recipient_phone_number,
+            :recipient_document,
+            :delivery_address,
+            :sku,
+            :stats, presence: true
+
+  validates :code, uniqueness: true
+
   after_validation :generate_code, on: :create
 
   private
