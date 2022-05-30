@@ -134,7 +134,7 @@ Um administrador deve ser capaz de cadastrar uma nova ordem de serviço para uma
 
 Uma ordem de serviço recém criada é considerada "pendente de aceite" pela transportadora. Toda ordem de serviço deve possuir um código identificador único gerado automaticamente. O código deve possuir 15 caracteres alfanuméricos e será utilizado para o rastreamento da entrega.
 
-- [ ] Concluido?
+- [x] Concluido?
 
 ### **Atualizar Ordem de Serviço**
 
