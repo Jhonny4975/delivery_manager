@@ -45,16 +45,6 @@ class TransportersController < ApplicationController
 
   def min_price; end
 
-  def search
-    set_data
-
-    if @transporters.blank? && @prices.blank? && @deadlines.blank?
-      flash[:notice] = 'Não houve resultados para sua consulta...'
-
-      redirect_to user_root_path
-    end
-  end
-
   private
 
   def transporter_params
@@ -67,16 +57,6 @@ class TransportersController < ApplicationController
       :min_price,
       :stats
     )
-  end
-
-  def set_data
-    search_data = BudgetDataFilterService.new(params)
-    search_data.call
-    search_data.price_calculator(params[:distance])
-
-    @transporters = search_data.transporters
-    @deadlines = search_data.deadlines
-    @prices = search_data.prices
   end
 
   def set_transporter
