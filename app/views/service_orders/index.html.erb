@@ -2,22 +2,25 @@
   <div>
     <h3>Ordens de serviço<h3>
   </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Transportadora</th>
-          <th>Código da ordem</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @service_orders.each_with_index do |service_order, index| %>
-        <tr>
-          <td><%= service_order.transporter.brand_name %></td>
-          <td><%= service_order.code %></td>
-          <td><%= service_order.stats %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Transportadora</th>
+        <th>Código da ordem</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @service_orders.each_with_index do |service_order, index| %>
+      <tr>
+        <td><%= service_order.transporter.brand_name %></td>
+        <td><%= service_order.code %></td>
+        <td><%= service_order.stats %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= link_to 'Voltar', user_root_path %>
+  </div><br>
 </section>
