@@ -9,6 +9,9 @@
   </div>
   <div>
     <%= render partial: 'shared/search/quotes' %>
+  </div><br>
+  <div>
+    <%= link_to 'Ordens de serviço', service_orders_path %>
   </div>
   <% else %>
   <h3><%= link_to @transporter.brand_name, @transporter %></h3>
