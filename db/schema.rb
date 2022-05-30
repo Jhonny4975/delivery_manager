@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_28_235915) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_29_164816) do
   create_table "budgets", force: :cascade do |t|
     t.decimal "max_size", null: false
     t.decimal "min_size", null: false
@@ -31,6 +31,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_28_235915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["transporter_id"], name: "index_deadlines_on_transporter_id"
+  end
+
+  create_table "service_orders", force: :cascade do |t|
+    t.decimal "height", null: false
+    t.decimal "length", null: false
+    t.decimal "width", null: false
+    t.decimal "weight", null: false
+    t.decimal "distance", null: false
+    t.string "pickup_address", null: false
+    t.string "recipient_name", null: false
+    t.string "recipient_phone_number", null: false
+    t.string "recipient_document", null: false
+    t.string "delivery_address", null: false
+    t.string "code"
+    t.string "sku", null: false
+    t.integer "stats", default: 0, null: false
+    t.integer "transporter_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "unique_code", unique: true
+    t.index ["transporter_id"], name: "index_service_orders_on_transporter_id"
   end
 
   create_table "transporters", force: :cascade do |t|
@@ -83,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_28_235915) do
 
   add_foreign_key "budgets", "transporters"
   add_foreign_key "deadlines", "transporters"
+  add_foreign_key "service_orders", "transporters"
   add_foreign_key "users", "transporters"
   add_foreign_key "vehicles", "users"
 end
