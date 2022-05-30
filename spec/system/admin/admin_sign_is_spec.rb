@@ -21,6 +21,7 @@ describe 'admin accesses login screen' do
     expect(page).to have_content admin.branch_office_name
     expect(page).to have_link 'Início'
     expect(page).to have_link 'Transportadoras'
+    expect(page).to have_link 'Ordens de serviço'
     expect(page).not_to have_link 'Veículos'
     expect(page).not_to have_link Transporter.last.brand_name
     expect(page).to have_button 'Sair'
