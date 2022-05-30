@@ -25,6 +25,13 @@ class ServiceOrdersController < ApplicationController
       flash[:notice] = 'Ordem de serviço cadastrada com sucesso!'
 
       redirect_to service_orders_path
+    else
+      @search_params = service_order_params
+      @transporters = [Transporter.find(service_order_params[:transporter_id].to_i)]
+
+      flash.now[:notice] = 'Não foi possível cadastrar a ordem de serviço.'
+
+      render :new
     end
   end
 
