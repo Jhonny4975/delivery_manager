@@ -15,7 +15,7 @@
       <tr>
         <td><%= service_order.transporter.brand_name %></td>
         <td><%= service_order.code %></td>
-        <td><%= service_order.stats %></td>
+        <td><%= ServiceOrder.human_enum_name(:stats, service_order.stats) %></td>
       </tr>
       <% end %>
     </tbody>
