@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :deadlines, only: %i[new create]
   resources :vehicles
 
-  resources :service_orders, only: %i[index create show] do
+  resources :service_orders, only: %i[index create show edit update] do
     get 'search', on: :collection
   end
 
