@@ -1,0 +1,17 @@
+<section>
+  <div>
+    <strong>Tamanho do produto (m³):</strong> <%= @size %><br>
+    <strong>Peso do produto (kg):</strong> <%= @service_order.weight %><br>
+    <strong>Distância (km):</strong> <%= @service_order.distance %><br>
+    <strong>Endereço de retirada:</strong> <%= @service_order.pickup_address %><br>
+    <strong>Endereço de entrega:</strong> <%= @service_order.delivery_address %><br>
+    <strong>Código do produto:</strong> <%= @service_order.sku %><br>
+    <strong>Nome do destinatário:</strong> <%= @service_order.recipient_name %><br>
+    <strong>Telefone do destinatário:</strong> <%= @service_order.recipient_phone_number %><br>
+    <strong>CPF do destinatário:</strong> <%= @service_order.recipient_document %><br>
+    <strong>Status:</strong> <%= ServiceOrder.human_enum_name(:stats, @service_order.stats) %>
+  </div><br>
+  <div>
+   <%= link_to 'Voltar', user_root_path %>
+  </div>
+</section>
