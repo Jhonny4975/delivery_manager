@@ -1,7 +1,14 @@
 # frozen_string_literal: true
 
 class ServiceOrder < ApplicationRecord
-  enum stats: { pending: 0, passed: 5, failed: 10 }
+  enum stats: {
+    pending: 0,
+    accepted: 5,
+    refused: 10,
+    collected: 15,
+    in_transit: 20,
+    finished: 25
+  }
 
   belongs_to :transporter
 
