@@ -20,7 +20,7 @@ RSpec.describe ServiceOrder, type: :model do
       it { is_expected.to validate_presence_of(:recipient_document) }
       it { is_expected.to validate_presence_of(:delivery_address) }
       it { is_expected.to validate_presence_of(:sku) }
-      it { is_expected.to validate_presence_of(:stats) }
+      it { is_expected.to define_enum_for(:stats).with_values(pending: 0, passed: 5, failed: 10) }
     end
 
     context 'with uniqueness' do
@@ -46,12 +46,11 @@ RSpec.describe ServiceOrder, type: :model do
           recipient_document: '',
           delivery_address: '',
           sku: '',
-          stats: '',
           transporter_id: ''
         )
 
         expect(service_order).not_to be_valid
-        expect(service_order.errors.full_messages.length).to eq 13
+        expect(service_order.errors.full_messages.length).to eq 12
       end
     end
 

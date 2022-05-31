@@ -24,7 +24,7 @@ describe 'administrator accesses the create work order screen' do
     expect(page).to have_content 'Ordem de serviço cadastrada com sucesso!'
     expect(page).to have_content transporter.brand_name
     expect(page).to have_content ServiceOrder.last.code
-    expect(page).to have_content ServiceOrder.last.stats
+    expect(page).to have_content ServiceOrder.human_enum_name(:stats, ServiceOrder.last.stats)
     expect(page).to have_link 'Voltar'
   end
 

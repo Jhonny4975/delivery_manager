@@ -13,7 +13,7 @@ describe 'administrator access the service order listing' do
     expect(page).not_to have_content 'Não há nenhuma ordem de serviço existente.'
     expect(page).to have_content ServiceOrder.last.transporter.brand_name
     expect(page).to have_content ServiceOrder.last.code
-    expect(page).to have_content ServiceOrder.last.stats
+    expect(page).to have_content ServiceOrder.human_enum_name(:stats, ServiceOrder.last.stats)
   end
 
   it 'and see a message' do
