@@ -57,6 +57,10 @@ class ServiceOrdersController < ApplicationController
     redirect_to user_root_path, notice: 'Serviço ataualizado com sucesso!'
   end
 
+  def tracking
+    @tracking = ServiceOrder.find_by(code: params[:code])
+  end
+
   private
 
   def service_order_params

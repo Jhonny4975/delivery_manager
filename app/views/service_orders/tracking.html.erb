@@ -1,0 +1,9 @@
+<section>
+  <h3>Resultado</h3>
+  <div>
+    <strong>Código:</strong> <%= @tracking.code %><br>
+    <strong>Endereço de saída:</strong> <%= @tracking.pickup_address %><br>
+    <strong>Endereço de entrega:</strong> <%= @tracking.delivery_address %><br>
+    <strong>Status:</strong> <%= ServiceOrder.human_enum_name(:stats, @tracking.stats) %>
+  </div>
+</section>

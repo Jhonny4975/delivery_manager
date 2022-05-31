@@ -4,8 +4,19 @@
     <%= link_to 'Voltar', user_root_path %>
   </div>
   <% else %>
-  <div>
-    <%= link_to 'Fazer login', new_user_session_path %>
-  </div>
+    <div>
+      <h3>Consultar entrega</h3>
+    </div>
+    <div>
+      <%= form_with url: tracking_service_orders_path, method: :get do |form| %>
+        <%= form.label :code %>
+        <%= form.text_field :code %>
+        <%= form.submit 'buscar' %>
+      <% end %>
+
+    </div>
+    <div>
+      <%= link_to 'Fazer login', new_user_session_path %>
+    </div>
   <% end %>
 </div>

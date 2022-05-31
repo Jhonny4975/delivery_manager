@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :service_orders, only: %i[index create show edit update] do
     get 'search', on: :collection
+    get 'tracking', on: :collection
   end
 
   get '/welcome' => 'welcome#index', as: :user_root
