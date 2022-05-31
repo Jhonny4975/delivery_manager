@@ -55,5 +55,8 @@ pt-BR:
         recipient_document: 'CPF do destinatário'
         stats:
           pending: 'Pendente'
-          passed: 'Aceito'
-          failed: 'Recusado'
+          accepted: 'Aceito'
+          refused: 'Recusado'
+          collected: 'Coletado'
+          in_transit: 'Em transito'
+          finished: 'Finalizado'
