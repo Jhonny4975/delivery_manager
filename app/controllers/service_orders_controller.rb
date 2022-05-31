@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ServiceOrdersController < ApplicationController
-  before_action :set_service_order, only: %i[show]
+  before_action :set_service_order, only: %i[show edit update]
 
   def index
     if ServiceOrder.all.present?
@@ -47,6 +47,16 @@ class ServiceOrdersController < ApplicationController
     @size = @service_order.height * @service_order.width * @service_order.length
   end
 
+  def edit
+    @vehicles = current_user.vehicle
+  end
+
+  def update
+    @service_order.update(service_order_params)
+
+    redirect_to user_root_path, notice: 'Serviço ataualizado com sucesso!'
+  end
+
   private
 
   def service_order_params
@@ -62,7 +72,9 @@ class ServiceOrdersController < ApplicationController
       :delivery_address,
       :recipient_name,
       :recipient_phone_number,
-      :recipient_document
+      :recipient_document,
+      :vehicle_id,
+      :stats
     )
   end
 
