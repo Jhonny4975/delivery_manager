@@ -53,3 +53,7 @@ pt-BR:
         recipient_name: 'Nome do destinatário'
         recipient_phone_number: 'Telefone do destinatário'
         recipient_document: 'CPF do destinatário'
+        stats:
+          pending: 'Pendente'
+          passed: 'Aceito'
+          failed: 'Recusado'
