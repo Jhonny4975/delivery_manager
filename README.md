@@ -142,10 +142,10 @@ Usuários da transportadora devem ver todos os pedidos encaminhados para a sua t
 
 Ordens de serviço aprovadas devem receber atualizações de rota. Cada atualização de rota deve conter uma data e hora, além de indicar uma coordenada geográfica de posição do caminhão responsável pela entrega. Ao fim da rota, a ordem de serviço deve ser atualizada como o status "finalizado".
 
-- [ ] Concluido?
+- [x] Concluido?
 
 ### **Consulta de Entrega**
 
 Uma pessoa não autenticada deve ser capaz de consultar o status de uma entrega informando o código de rastreamento da entrega. Na página de resultado devem ser exibidos o endereço de saída, o endereço de entrega e todas as atualizações de trajeto existentes.
 
-- [ ] Concluido?
+- [x] Concluido?
