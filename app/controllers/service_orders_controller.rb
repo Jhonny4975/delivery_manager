@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ServiceOrdersController < ApplicationController
+  before_action :set_service_order, only: %i[show]
+
   def index
     if ServiceOrder.all.present?
       @service_orders = ServiceOrder.all
@@ -41,6 +43,10 @@ class ServiceOrdersController < ApplicationController
     end
   end
 
+  def show
+    @size = @service_order.height * @service_order.width * @service_order.length
+  end
+
   private
 
   def service_order_params
@@ -68,5 +74,9 @@ class ServiceOrdersController < ApplicationController
     @transporters = search_data.transporters
     @deadlines = search_data.deadlines
     @prices = search_data.prices
+  end
+
+  def set_service_order
+    @service_order = ServiceOrder.find(params[:id])
   end
 end
