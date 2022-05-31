@@ -6,6 +6,12 @@
 
 - [Instruções](#instruções)
 
+  - [Clonando o projeto](#clonando-o-projeto)
+
+  - [Instalação e execução](#instalação-e-execução)
+
+  - [Login](#login)
+
 - [Ferramentas adicionais](#ferramentas-adicionais)
 
 - [Resumo de Funcionalidades](#resumo-de-funcionalidades)
@@ -35,25 +41,41 @@ O objetivo é avaliar minha evolução durante o treinamento e capacidade de con
 
 ## Instruções
 
-Clone o projeto:
+### Clonando o projeto:
 
 ```sh
 git clone https://github.com/Jhonny4975/delivery_manager.git
 ```
 
-Instalação e execução:
+### Instalação e execução:
 
 ```sh
-bundle install               => instalar dependencias do projeto (o ruby 3.1.0 deve estar instalado)
+bundle install        => instalar dependencias do projeto (o ruby 3.1.0 deve estar instalado)
 
-bin/rails db:prepare db:seed => preparar e popular banco de dados
+bin/rails db:prepare  => preparar banco de dados
 
-bundle exec rspec            => rodar testes
+bin/rails db:seed     => popular banco de dados
 
-rails server                 => rodar servidor
+bundle exec rspec     => rodar testes
+
+rails server          => rodar servidor
 ```
 
-com o servidor rodando acesse [localhost](http://localhost:3000/)
+Com o servidor rodando acesse [localhost](http://localhost:3000/). 
+
+### Login
+
+Se você seguir as instruções, o seeds vai preparar dois usuarios e os demais objetos com dados aleatórios. Para fazer login com os usuarios que foram criados preencha os campos de login com os seguintes dados:
+
+E-mail:
+```text
+visit@gmail.com
+```
+Senha:
+```text
+123456
+```
+Para fazer login como **admin** troque o e-mail por `visit@sistemadefrete.com.br`.
 
 ## Ferramentas Adicionais
 
