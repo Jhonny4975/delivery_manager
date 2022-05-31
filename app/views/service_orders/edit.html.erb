@@ -1,0 +1,43 @@
+<section>
+  <div>
+    <h4>Atualização de ordem de serviço</h4>
+  </div>
+    <div>
+      <%= form_with model: @service_order do |form| %>
+        <div>
+          <%= form.label :stats, 'Status' %>
+          <%= form.select :stats, [
+                                    [ServiceOrder.human_enum_name(:stats, :pending), :pending],
+                                    [ServiceOrder.human_enum_name(:stats, :accepted), :accepted],
+                                    [ServiceOrder.human_enum_name(:stats, :refused), :refused],
+                                    [ServiceOrder.human_enum_name(:stats, :collected), :collected],
+                                    [ServiceOrder.human_enum_name(:stats, :in_transit), :in_transit],
+                                    [ServiceOrder.human_enum_name(:stats, :finished), :finished]
+                                  ] %>
+        </div><br>
+        <% if @service_order.pending? %>
+          <p>selecione um veículo</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Modelo</th>
+                <th>Capacidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @vehicles.each do |vehicle| %>
+                  <tr>
+                    <td><%= form.radio_button :vehicle_id, vehicle.id %> <%= link_to vehicle.model, vehicle %></td>
+                    <td><%= vehicle.capacity %> kg</td>
+                  </tr>
+                <% end %>
+            </tbody>
+          </table><br>
+        <% end %>
+        <div>
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
+
+</section>

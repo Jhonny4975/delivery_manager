@@ -9,9 +9,12 @@
     <strong>Nome do destinatário:</strong> <%= @service_order.recipient_name %><br>
     <strong>Telefone do destinatário:</strong> <%= @service_order.recipient_phone_number %><br>
     <strong>CPF do destinatário:</strong> <%= @service_order.recipient_document %><br>
-    <strong>Status:</strong> <%= ServiceOrder.human_enum_name(:stats, @service_order.stats) %>
+    <strong>Status:</strong> <%= ServiceOrder.human_enum_name(:stats, @service_order.stats) %> <%= @service_order.updated_at.strftime('em: %d/%m/%Y as %H:%M')%>
   </div><br>
   <div>
-   <%= link_to 'Voltar', user_root_path %>
+    <%= link_to 'Atualizar status', edit_service_order_path(@service_order) %>
+  </div>
+  <div>
+    <%= link_to 'Voltar', user_root_path %>
   </div>
 </section>
