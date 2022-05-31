@@ -9,7 +9,7 @@
     </div>
     <div>
       <%= form_with url: tracking_service_orders_path, method: :get do |form| %>
-        <%= form.label :code %>
+        <%= form.label :code, 'Código do pedido:' %>
         <%= form.text_field :code %>
         <%= form.submit 'buscar' %>
       <% end %>
