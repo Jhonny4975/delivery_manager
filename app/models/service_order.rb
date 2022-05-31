@@ -27,7 +27,7 @@ class ServiceOrder < ApplicationRecord
 
   validates :code, uniqueness: true
 
-  after_validation :generate_code, on: :create
+  before_validation :generate_code, on: :create
 
   private
 

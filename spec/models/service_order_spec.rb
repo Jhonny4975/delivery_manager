@@ -20,13 +20,7 @@ RSpec.describe ServiceOrder, type: :model do
       it { is_expected.to validate_presence_of(:recipient_document) }
       it { is_expected.to validate_presence_of(:delivery_address) }
       it { is_expected.to validate_presence_of(:sku) }
-      it { is_expected.to define_enum_for(:stats).with_values(pending: 0, passed: 5, failed: 10) }
-    end
-
-    context 'with uniqueness' do
-      subject { build(:service_order, code: Faker::Alphanumeric.alphanumeric(number: 15)) }
-
-      it { is_expected.to validate_uniqueness_of(:code) }
+      it { is_expected.to define_enum_for(:stats) }
     end
   end
 
