@@ -142,32 +142,28 @@ Cada transportadora deve fazer sua configuração de prazos de entrega de acordo
 
 ### **Consulta de preços**
 
-A aplicação deve permitir aos administradores a realização de consultas de preço de frete. Para isso deverão ser informados: as dimensões do item a ser transportado, o peso e a distância a ser percorrida. Com estas informações deve ser feito o cálculo do frete e retornar todos as transportadoras com suas respectivas taxas de entrega e prazos.
+- [x] A aplicação deve permitir aos administradores a realização de consultas de preço de frete. Para isso deverão ser informados: as dimensões do item a ser transportado, o peso e a distância a ser percorrida. Com estas informações deve ser feito o cálculo do frete e retornar todos as transportadoras com suas respectivas taxas de entrega e prazos.
 
-Todas as transportadoras ativas devem ser consideradas, desde que possuam preço configurado que atenda as dimensões e a distância do pedido.
+- [x] Todas as transportadoras ativas devem ser consideradas, desde que possuam preço configurado que atenda as dimensões e a distância do pedido.
 
-O resultado de uma consulta de preços deve ser armazenado para consultas futuras.
+- [ ] O resultado de uma consulta de preços deve ser armazenado para consultas futuras.
 
-- [x] Concluido?
 
 ### **Criar Ordem de Serviço**
 
-Um administrador deve ser capaz de cadastrar uma nova ordem de serviço para uma transportadora. Devem ser informados os dados para retirada do produto (endereço completo, código identificador do produto a ser retirado, dimensões e peso) e as informações para entrega como endereço completo e dados do destinatário.
+- [x] Um administrador deve ser capaz de cadastrar uma nova ordem de serviço para uma transportadora. Devem ser informados os dados para retirada do produto (endereço completo, código identificador do produto a ser retirado, dimensões e peso) e as informações para entrega como endereço completo e dados do destinatário.
 
-Uma ordem de serviço recém criada é considerada "pendente de aceite" pela transportadora. Toda ordem de serviço deve possuir um código identificador único gerado automaticamente. O código deve possuir 15 caracteres alfanuméricos e será utilizado para o rastreamento da entrega.
+- [x] Uma ordem de serviço recém criada é considerada "pendente de aceite" pela transportadora. Toda ordem de serviço deve possuir um código identificador único gerado automaticamente. O código deve possuir 15 caracteres alfanuméricos e será utilizado para o rastreamento da entrega.
 
-- [x] Concluido?
 
 ### **Atualizar Ordem de Serviço**
 
-Usuários da transportadora devem ver todos os pedidos encaminhados para a sua transportadora. Uma ordem de serviço pendente de aceite deve ser aprovada ou reprovada. Ao aprovar um pedido, o usuário deve vincular um veículo da transportadora à ordem de serviço.
+- [x] Usuários da transportadora devem ver todos os pedidos encaminhados para a sua transportadora. Uma ordem de serviço pendente de aceite deve ser aprovada ou reprovada. Ao aprovar um pedido, o usuário deve vincular um veículo da transportadora à ordem de serviço.
 
-Ordens de serviço aprovadas devem receber atualizações de rota. Cada atualização de rota deve conter uma data e hora, além de indicar uma coordenada geográfica de posição do caminhão responsável pela entrega. Ao fim da rota, a ordem de serviço deve ser atualizada como o status "finalizado".
-
-- [x] Concluido?
+- [ ] Ordens de serviço aprovadas devem receber atualizações de rota. Cada atualização de rota deve conter uma data e hora, além de indicar uma coordenada geográfica de posição do caminhão responsável pela entrega. Ao fim da rota, a ordem de serviço deve ser atualizada como o status "finalizado".
 
 ### **Consulta de Entrega**
 
-Uma pessoa não autenticada deve ser capaz de consultar o status de uma entrega informando o código de rastreamento da entrega. Na página de resultado devem ser exibidos o endereço de saída, o endereço de entrega e todas as atualizações de trajeto existentes.
+- [X] Uma pessoa não autenticada deve ser capaz de consultar o status de uma entrega informando o código de rastreamento da entrega.
 
-- [x] Concluido?
+- [ ] Na página de resultado devem ser exibidos o endereço de saída, o endereço de entrega e todas as atualizações de trajeto existentes.
